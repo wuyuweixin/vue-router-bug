@@ -5,9 +5,13 @@
 <script>
   export default {
     name: "MyForm",
-    beforeRouteLeave() {
-      window.confirm()
-      return false
+    beforeRouteLeave(to, from, next) {
+      const rest = window.confirm('Do you want to leave?')
+      if (rest) {
+        next()
+      } else {
+        next(false)
+      }
     }
   }
 </script>
